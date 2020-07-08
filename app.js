@@ -1,6 +1,18 @@
-const http = require('http');
-const routes = require('./routes');
+const express = require('express');
 
-const server = http.createServer(routes);
+const app = express();
 
-server.listen(7505);
+app.use('/', (req, res, next) => {;
+  console.log('gmml');
+  next();
+});
+
+app.use('/ims', (req, res, next) => {;
+  res.send(`<h1>ims</h1>`);
+});
+
+app.use('/', (req, res, next) => {
+  res.send(`<h1>The Best Things In Life Start With Mau</h1>`);
+});
+
+app.listen(7505);
